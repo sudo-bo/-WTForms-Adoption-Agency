@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block title %}All Users{% endblock %} {% block content %}
+<h2>All Current Pets</h2>
+{% for pet in pets %}
+<p><a href="/{{ pet.id }}">{{ pet.name }}</a></p>
+<img src="{{ pet.photo_url}}" style="border-radius: 20%; width: 150px; height: 150px; object-fit: cover; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)" alt="{{ pet.name }}'s Photo" />
+{% if pet.available %}
+<div><b>Available</b></div>
+
+{% endif %} {% endfor %}
+
+<div>
+  <p>
+    <a href="/add">Add Pet</a>
+  </p>
+</div>
+
+{% endblock %}
